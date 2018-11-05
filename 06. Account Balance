@@ -1,0 +1,37 @@
+using System;
+
+namespace _06._Account_Balance
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int numberPayment = int.Parse(Console.ReadLine());
+            double sumTotal = 0;
+            int numberPaymentCounter = 0;
+            bool numberPaymentBool = true;
+
+            while (numberPaymentBool)
+            {
+                numberPaymentCounter++;
+                double payment = double.Parse(Console.ReadLine());
+                if (numberPaymentCounter == numberPayment)
+                {
+                    numberPaymentBool = false;
+                }
+                if (payment >= 0 && sumTotal >= 0)
+                {
+                    sumTotal += payment;
+                    Console.WriteLine($"Increase: {payment:F2}");
+                }
+               else if (payment < 0)
+                {
+                    Console.WriteLine("Invalid operation!");
+                    break;
+                }
+
+            }
+            Console.WriteLine($"Total: {sumTotal:F2}");
+        }
+    }
+}
