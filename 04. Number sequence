@@ -1,0 +1,31 @@
+using System;
+
+namespace _04._Number_sequence
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string comand = Console.ReadLine().ToUpper();
+            int minNumber = 100000;
+            int maxNumber = -100000;
+            int currentNumber;
+
+            while(comand != "END")
+            {
+                currentNumber = int.Parse(comand);
+                if(currentNumber < minNumber)
+                {
+                    minNumber = currentNumber;
+                }
+                if(currentNumber > maxNumber)
+                {
+                    maxNumber = currentNumber;
+                }
+                comand = Console.ReadLine().ToUpper();
+            }
+            Console.WriteLine($"Max number: {maxNumber}");
+            Console.WriteLine($"Min number: {minNumber}");
+        }
+    }
+}
