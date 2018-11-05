@@ -1,0 +1,42 @@
+using System;
+
+namespace _05._Walking
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string steps = Console.ReadLine().ToLower();
+            int stepsGoal = 10000;
+            int stepsSum = 0;
+
+            while (steps != "going home")
+            {
+                stepsSum += int.Parse(steps);
+                if (stepsSum >= stepsGoal)
+                {
+                    Console.WriteLine("Goal reached! Good job!");
+                    break;
+                }
+                steps = Console.ReadLine().ToLower();
+
+            }
+            if (steps == "going home")
+            {
+                steps = Console.ReadLine().ToLower();
+                stepsSum += int.Parse(steps);
+
+                if (stepsSum < stepsGoal)
+                {
+                    Console.WriteLine($"{stepsGoal - stepsSum} more steps to reach goal.");
+                    
+                }
+                else
+                {
+                    Console.WriteLine("Goal reached! Good job!");
+                    
+                }
+            }
+        }
+    }
+}
