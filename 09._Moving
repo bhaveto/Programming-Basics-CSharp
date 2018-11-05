@@ -1,0 +1,40 @@
+using System;
+
+namespace _09._Moving
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int width = int.Parse(Console.ReadLine());
+            int lenght = int.Parse(Console.ReadLine());
+            int hight = int.Parse(Console.ReadLine());
+            string command = Console.ReadLine().ToLower();
+            int cubicMeterDefault = width * lenght * hight;
+            int cubicMeterCarton = 0;
+            bool end = true;
+
+            while (end)
+            {
+                if(command != "done")
+                {
+                    cubicMeterCarton += int.Parse(command);
+                    if (cubicMeterCarton > cubicMeterDefault)
+                    {
+                        Console.WriteLine($"No more free space! You need {cubicMeterCarton-cubicMeterDefault} Cubic meters more.");
+                        end = false;
+                    }
+                    else if(cubicMeterCarton <= cubicMeterDefault)
+                    {
+                        command = Console.ReadLine().ToLower();
+                    }
+                }
+                else
+                {
+                    Console.WriteLine($"{cubicMeterDefault-cubicMeterCarton} Cubic meters left.");
+                    end = false;
+                }
+            }
+        }
+    }
+}
