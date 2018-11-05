@@ -1,0 +1,52 @@
+using System;
+
+namespace _07._Water_dispenser
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double cupVolume = double.Parse(Console.ReadLine());
+            string buttonPress = Console.ReadLine().ToLower();
+            double easyMl = 50;
+            double mediumMl = 100;
+            double hardMl = 200;
+            double sumCupWater = 0;
+            int counterButton = 0;
+            bool buttonEnd = true;
+
+            while (buttonEnd)
+            {
+                if (buttonPress == "easy")
+                {
+                    counterButton++;
+                    sumCupWater += easyMl;
+                }
+                if (buttonPress == "medium")
+                {
+                    counterButton++;
+                    sumCupWater += mediumMl;
+                }
+                if (buttonPress == "hard")
+                {
+                    counterButton++;
+                    sumCupWater += hardMl;
+                }
+                if (sumCupWater == cupVolume)
+                {
+                    buttonEnd = false;
+                    Console.WriteLine($"The dispenser has been tapped {counterButton} times.");
+                    break;
+                }
+                if (sumCupWater > cupVolume)
+                {
+                    buttonEnd = false;
+                    Console.WriteLine($"{sumCupWater - cupVolume}ml has been spilled.");
+                    break;
+                }
+
+                buttonPress = Console.ReadLine().ToLower();
+            }
+        }
+    }
+}
